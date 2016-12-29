@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/map1"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dimens_5dp"
+        android:layout_marginStart="@dimen/dimens_5dp"
+        android:layout_marginTop="@dimen/dimens_10dp"
+        android:background="@color/Bisque">
+
+        <TextView
+            android:id="@+id/tvNameHospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+        <TextView
+            android:id="@+id/tvPhoneHospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNameHospital"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+
+        <TextView
+            android:id="@+id/tvWebsiteHospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPhoneHospital"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimens_20sp" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imgBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/dimens_5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/medician_bg" />
+
+    <LinearLayout
+        android:layout_below="@+id/imgBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNamePill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimens_10dp"
+            android:text="@string/text_view_text_thuoc_ho_bao_thanh"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+        <TextView
+            android:id="@+id/tvFeaturesOfPill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimens_10dp"
+            android:text="@string/text_view_text_chi_dinh"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+        <TextView
+            android:id="@+id/tvDirectionOfUse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimens_10dp"
+            android:text="@string/text_view_text_huong_dan_su_dung"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+        <TextView
+            android:id="@+id/tvCostOfPill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimens_10dp"
+            android:text="@string/text_view_text_gia_ban"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

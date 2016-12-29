@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dimens_5dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimens_5dp"
+        android:text="@string/text_view_text_thong_tin_cua_ban"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimens_20sp" />
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitle"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:hint="@string/edt_hint_name"
+        android:padding="@dimen/dimens_10dp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtName"
+        android:layout_marginTop="@dimen/dimens_10dp"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:hint="@string/edt_hint_email"
+        android:padding="@dimen/dimens_10dp" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dimens_10dp"
+        android:id="@+id/tvTitleFeedBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtEmail"
+        android:padding="@dimen/dimens_2dp"
+        android:text="@string/text_view_text_feedback"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimens_18sp" />
+    <EditText
+        android:id="@+id/edtContentFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_200dp"
+        android:layout_below="@id/tvTitleFeedBack"
+        android:layout_marginTop="@dimen/dimens_10dp"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:padding="@dimen/dimens_10dp" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtContentFeedBack"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item_recyclerview_hospital_fragment"
+            android:padding="@dimen/dimens_5dp"
+            android:text="@string/text_view_btn_gui" />
+
+        <Button
+            android:layout_marginLeft="@dimen/dimens_25dp"
+            android:id="@+id/btnHuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item_recyclerview_hospital_fragment"
+            android:padding="@dimen/dimens_5dp"
+            android:text="@string/text_view_btn_huy"
+            />
+    </LinearLayout>
+</RelativeLayout>

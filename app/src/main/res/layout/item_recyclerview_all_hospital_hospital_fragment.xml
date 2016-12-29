@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimens_10dp"
+    android:background="@drawable/border_item_recyclerview_hospital_fragment">
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/dimens_80dp"
+        android:layout_height="@dimen/dimens_80dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dimens_5dp"
+        android:padding="@dimen/dimens_5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_hospital" />
+
+    <TextView
+        android:id="@+id/tvHospitalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/imgIcon"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:layout_marginLeft="@dimen/dimens_10dp"
+        android:padding="@dimen/dimens_2dp"
+        android:text="@string/text_view_text_benh_vien_hoan_my"
+        android:textSize="@dimen/dimens_20sp"
+        tools:ignore="UnknownIdInLayout" />
+
+    <TextView
+        android:id="@+id/tvAddressOfHospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvHospitalName"
+        android:layout_toEndOf="@+id/imgIcon"
+        android:layout_marginLeft="@dimen/dimens_10dp"
+        android:layout_toRightOf="@+id/imgIcon"
+        android:padding="@dimen/dimens_5dp"
+        android:text="@string/text_view_text_Quan_Trung_Hai_Chau"
+        android:textSize="@dimen/dimens_15dp"
+        tools:ignore="UnknownIdInLayout" />
+</RelativeLayout>

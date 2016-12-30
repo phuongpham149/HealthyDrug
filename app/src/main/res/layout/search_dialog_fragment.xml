@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimens_5dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_15dp"
+        android:gravity="center"
+        android:text="@string/textview_text_tim_kiem"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimens_25sp" />
+
+    <EditText
+        android:id="@+id/edtTenThuoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:hint="@string/text_view_text_ten_thuoc"
+        android:padding="@dimen/dimens_10dp" />
+
+    <EditText
+        android:id="@+id/edtTriBenh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTenThuoc"
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:hint="@string/text_view_text_tri_benh"
+        android:padding="@dimen/dimens_10dp" />
+
+    <EditText
+        android:id="@+id/edtGiaTien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTriBenh"
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:hint="@string/text_view_text_gia_tien"
+        android:padding="@dimen/dimens_10dp" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtGiaTien"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnTimKiem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item_recyclerview_hospital_fragment"
+            android:padding="@dimen/dimens_5dp"
+            android:text="@string/text_view_btn_tim_kiem" />
+
+        <Button
+            android:layout_marginLeft="@dimen/dimens_25dp"
+            android:id="@+id/btnDong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item_recyclerview_hospital_fragment"
+            android:padding="@dimen/dimens_5dp"
+            android:text="@string/text_view_btn_dong"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+</RelativeLayout>

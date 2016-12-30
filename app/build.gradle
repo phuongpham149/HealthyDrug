@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+def AAVersion = '4.0.0'
 
 android {
     compileSdkVersion 25
@@ -26,4 +28,32 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
+
+    //google map
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.google.android.gms:play-services-location:10.0.1'
+
+    //annotation
+    compile 'com.android.support:support-annotations:24.0.0'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    //noinspection GradleCompatible
+    compile 'com.android.support:design:24.0.0'
+    // RecyclerView
+    //noinspection GradleCompatible
+    compile 'com.android.support:recyclerview-v7:24.0.0'
+
+    // Lombok
+    provided "org.projectlombok:lombok:1.12.6"
+
+    compile 'com.github.satyan:sugar:1.4'
+
+    //lib image loader
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //lib draw direction
+    compile 'com.github.jd-alexander:library:1.1.0'
+
+
 }
+

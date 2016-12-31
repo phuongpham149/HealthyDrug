@@ -20,18 +20,4 @@ public class Hospital extends SugarRecord {
 
     public Hospital() {
     }
-
-    @Override
-    public String toString() {
-        return "Hospital{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", image='" + image + '\'' +
-                ", website='" + website + '\'' +
-                ", provices=" + provices +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
-
-
 }

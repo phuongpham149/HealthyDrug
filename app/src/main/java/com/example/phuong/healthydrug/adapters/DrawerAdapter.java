@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.phuong.healthydrug.R;
+import com.example.phuong.healthydrug.listeners.OnClickItemMenuListener;
 import com.example.phuong.healthydrug.models.DrawerItem;
 
 import java.util.List;
@@ -21,10 +22,12 @@ import java.util.List;
 public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHolder>{
     private List<DrawerItem> mDrawerItems;
     private Context mContext;
+    private OnClickItemMenuListener mListener;
 
-    public DrawerAdapter(List<DrawerItem> mDrawerItems, Context mContext) {
+    public DrawerAdapter(List<DrawerItem> mDrawerItems, Context mContext,OnClickItemMenuListener listener) {
         this.mDrawerItems = mDrawerItems;
         this.mContext = mContext;
+        mListener = listener;
     }
 
     @Override
@@ -56,6 +59,13 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
             mTvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
 
             mImgIcon = (ImageView) itemView.findViewById(R.id.imgIcon);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.clickItemMenuListener(getAdapterPosition());
+                }
+            });
         }
     }
 }

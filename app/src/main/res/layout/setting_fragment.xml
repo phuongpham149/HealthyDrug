@@ -23,38 +23,32 @@
         android:padding="@dimen/dimens_10dp"
         android:shadowColor="@color/colorAccent" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimens_2dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_below="@+id/switchTurnAlarm"
-        android:background="@color/black" />
+        android:layout_marginTop="@dimen/dimens_15dp"
+        android:id="@+id/rlSetTime"
+        android:background="@drawable/border_item_recyclerview_hospital_fragment"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvSetAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimens_2dp"
+            android:padding="@dimen/dimens_5dp"
+            android:text="@string/textview_text_dat_gio"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_25sp"
+            android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/tvSetAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
-        android:layout_margin="@dimen/dimens_2dp"
-        android:padding="@dimen/dimens_5dp"
-        android:text="@string/textview_text_dat_gio"
-        android:textColor="@color/black"
-        android:textSize="@dimen/dimens_25sp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/tvSetTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSetAlarm"
-        android:padding="@dimen/dimens_10dp"
-        android:text="@string/textview_text_16_40"
-        android:textColor="@color/black"
-        android:textSize="@dimen/dimens_18sp" />
-
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimens_2dp"
-        android:layout_below="@+id/tvSetTime"
-        android:background="@color/black" />
+        <TextView
+            android:id="@+id/tvSetTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSetAlarm"
+            android:padding="@dimen/dimens_10dp"
+            android:text="@string/textview_text_16_40"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_18sp" />
+    </RelativeLayout>
 </RelativeLayout>

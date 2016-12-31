@@ -14,6 +14,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
     <permission
         android:name="com.skholingua.android.map.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
@@ -56,6 +60,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MainActivity_"/>
+        <service android:name=".services.RemindService"/>
+        <receiver android:name=".broadcasts.RemindReceiver"/>
     </application>
 
 </manifest>

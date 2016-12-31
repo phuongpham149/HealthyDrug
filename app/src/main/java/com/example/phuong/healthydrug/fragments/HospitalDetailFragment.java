@@ -40,7 +40,7 @@ import java.util.List;
 /**
  * Created by phuong on 29/12/2016.
  */
-@EFragment(R.layout.detail)
+@EFragment(R.layout.detail_item_hospital_fragment)
 public class HospitalDetailFragment extends BaseFragment implements OnMapReadyCallback, RoutingListener {
     private static final int[] COLORS = new int[]{R.color.primary_dark, R.color.primary, R.color.primary_light, R.color.accent, R.color.primary_dark_material_light};
     @FragmentArg

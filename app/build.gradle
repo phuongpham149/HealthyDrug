@@ -1,6 +1,37 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 def AAVersion = '3.2'
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // Replace with the current version of the Android plugin
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        // The latest version of the android-apt plugin
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName android.defaultConfig.applicationId
+        //noinspection GroovyAssignabilityCheck
+    }
+}
+
 
 android {
     compileSdkVersion 25
@@ -26,17 +57,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
-
+    provided 'org.projectlombok:lombok:1.12.6'
+    apt "org.projectlombok:lombok:1.12.6"
     //google map
     compile 'com.google.android.gms:play-services-maps:10.0.1'
     compile 'com.google.android.gms:play-services-location:10.0.1'
 
     //annotation
     compile 'com.android.support:support-annotations:24.0.0'
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    apt "org.androidannotations:androidannotations:3.2"
+    compile 'org.androidannotations:androidannotations-api:3.2'
     //noinspection GradleCompatible
     compile 'com.android.support:design:24.0.0'
     // RecyclerView
@@ -44,7 +76,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.0.0'
 
     // Lombok
-    provided "org.projectlombok:lombok:1.12.6"
 
     compile 'com.github.satyan:sugar:1.4'
 
@@ -57,4 +88,3 @@ dependencies {
     //oto bus
     compile 'com.squareup:otto:1.3.5'
 }
-

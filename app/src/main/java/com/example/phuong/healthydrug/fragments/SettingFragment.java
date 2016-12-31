@@ -11,6 +11,7 @@ import android.widget.TimePicker;
 
 import com.example.phuong.healthydrug.R;
 import com.example.phuong.healthydrug.models.Remind;
+import com.example.phuong.healthydrug.receivers.bus.BusProvider;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
 
@@ -44,8 +45,6 @@ public class SettingFragment extends BaseFragment {
     public static final String STATUS_SHAREPREFERENCES = "status";
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
-
-    public static Bus mBus;
     private String mStatus = "";
 
 
@@ -61,8 +60,7 @@ public class SettingFragment extends BaseFragment {
         mSharedPreferences = getActivity().getSharedPreferences(NAME_SHAREPREFERENCES, 0);
         mEditor = mSharedPreferences.edit();
 
-        mBus = new Bus(ThreadEnforcer.MAIN);
-        mBus.register(this);
+        BusProvider.getInstance().register(this);
     }
 
     @Click(R.id.rlSetTime)
@@ -84,38 +82,26 @@ public class SettingFragment extends BaseFragment {
                 Remind remind = new Remind();
                 remind.setHour(mHourSelect);
                 remind.setMins(mMinSelect);
-                mBus.post(remind);
+                BusProvider.getInstance().post(remind);
 
-                Log.d("tag","tag====12 "+mSharedPreferences.getString(SettingFragment.HOUR_SHAREPREFERENCES,"")+" 123 "+mHourSelect);
-
-                Log.d("tag","tag ==========123");
             }
         }, hour, minute, true);
         mTimePicker.setTitle(getResources().getString(R.string.title_settime));
         mTimePicker.show();
-
-        //set du lieu vao sharePreference
-
-        Log.d("tag","tag ==========");
-
     }
 
     @CheckedChange(R.id.switchTurnAlarm)
     void changeState(CompoundButton hello, boolean turnOn){
         if(turnOn){
-            //set lai sharePreference
             mEditor.putBoolean(STATUS_SHAREPREFERENCES,true);
-            //goi broadcast
             mStatus = "true";
 
         }
         else{
-            //set lai share
             mEditor.putBoolean(STATUS_SHAREPREFERENCES,false);
-            //goi broadcast
             mStatus = "false";
         }
         mEditor.commit();
-        mBus.post(mStatus);
+        BusProvider.getInstance().post(mStatus);
     }
 }

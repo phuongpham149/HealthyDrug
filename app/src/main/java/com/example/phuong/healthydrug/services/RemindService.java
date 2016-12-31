@@ -9,10 +9,10 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.phuong.healthydrug.activities.MainActivity;
-import com.example.phuong.healthydrug.broadcasts.RemindReceiver;
+import com.example.phuong.healthydrug.receivers.RemindReceiver;
 import com.example.phuong.healthydrug.fragments.SettingFragment;
 import com.example.phuong.healthydrug.models.Remind;
+import com.example.phuong.healthydrug.receivers.bus.BusProvider;
 import com.google.common.eventbus.Subscribe;
 import com.squareup.otto.Bus;
 
@@ -27,7 +27,6 @@ public class RemindService extends Service {
     private PendingIntent pendingIntent;
     private Remind mRemind;
     private SharedPreferences mSharedPreferences;
-    private Bus mBus;
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -38,8 +37,7 @@ public class RemindService extends Service {
     public void onCreate() {
         super.onCreate();
         //khoi tao sharePreference
-        Log.d("tag","tag2");
-        mBus = new Bus();
+        BusProvider.getInstance().register(this);
         mSharedPreferences = getSharedPreferences(SettingFragment.NAME_SHAREPREFERENCES, 0);
         mRemind = new Remind();
 
@@ -66,7 +64,6 @@ public class RemindService extends Service {
         mRemind.setHour(mSharedPreferences.getString(SettingFragment.HOUR_SHAREPREFERENCES,""));
         mRemind.setMins(mSharedPreferences.getString(SettingFragment.MIN_SHAREPREFERENCES,""));
         mRemind.setStatus(mSharedPreferences.getBoolean(SettingFragment.STATUS_SHAREPREFERENCES,false));
-        Log.d("tag","tag1"+mRemind.getHour()+" 12");
         //viet ham xu ly
         accessRemind(mRemind);
         return START_STICKY;
@@ -80,11 +77,9 @@ public class RemindService extends Service {
 
         int minsNow = minute + hour * 60;
         int minsAlarm = 0;
-        Log.d("tag","tag1");
         if (("true").equals(String.valueOf(remind.isStatus()))) {
             minsAlarm = Integer.parseInt(remind.getMins()) + 60 * (Integer.parseInt(remind.getHour()));
             if (minsAlarm > minsNow) {
-                Log.d("tag","tag11111");
                 calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(remind.getHour()));
                 calendar.set(Calendar.MINUTE, Integer.parseInt(remind.getMins()));
                 Intent myIntent = new Intent(RemindService.this, RemindReceiver.class);

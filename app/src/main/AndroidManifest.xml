@@ -61,7 +61,7 @@
         </activity>
         <activity android:name=".activities.MainActivity_"/>
         <service android:name=".services.RemindService"/>
-        <receiver android:name=".broadcasts.RemindReceiver"/>
+        <receiver android:name=".receivers.RemindReceiver"/>
     </application>
 
 </manifest>

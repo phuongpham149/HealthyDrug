@@ -1,4 +1,4 @@
-package com.example.phuong.healthydrug.broadcasts;
+package com.example.phuong.healthydrug.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

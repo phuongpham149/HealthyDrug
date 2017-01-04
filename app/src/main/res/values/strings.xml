@@ -5,7 +5,7 @@
     <string name="textview_text_see_all_hospital_in_here">see all hospital in here</string>
     <string name="textview_text_nhac_nho_uong_thuoc">Nhắc nhở uống thuốc</string>
     <string name="textview_text_dat_gio">Đặt giờ</string>
-    <string name="textview_text_16_40">16:50</string>
+    <string name="textview_text_16_40">16</string>
     <string name="textview_text_tim_kiem">Tìm Kiếm</string>
     <string name="text_view_text_ten_thuoc">Tên Thuốc</string>
     <string name="text_view_text_tri_benh">Trị Bệnh</string>
@@ -51,4 +51,10 @@
     <string name="message_send_feedback_success">Send Feedback Successful</string>
     <string name="between_mins_and_hour"> : </string>
     <string name="title_settime">Set Time</string>
+    <string name="textview_text_40">40</string>
+    <string name="dialog_title_confirm_remind">Do you know this remind?</string>
+    <string name="textview_text_ok">OK</string>
+    <string name="textview_text_cancel">Cancel</string>
+    <string name="textview_splash_THY">THY</string>
+    <string name="textview_splash_HEA">HEA</string>
 </resources>

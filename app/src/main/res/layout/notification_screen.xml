@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_15dp"
+        android:layout_marginStart="@dimen/dimens_15dp"
+        android:contentDescription="@null"
+        android:padding="@dimen/dimens_10dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_30dp"
+        android:layout_marginStart="@dimen/dimens_30dp"
+        android:layout_toEndOf="@+id/imgLogo"
+        android:layout_toRightOf="@+id/imgLogo"
+        android:padding="@dimen/dimens_10dp"
+        android:text="@string/dialog_title_confirm_remind"
+        android:textSize="@dimen/dimens_20sp"
+
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/view_notification"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1dp"
+        android:layout_below="@+id/imgLogo"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:id="@+id/rlCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_notification"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimens_5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_16dp"
+            android:layout_marginStart="@dimen/dimens_16dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_50dp"
+            android:layout_marginStart="@dimen/dimens_50dp"
+            android:layout_marginTop="@dimen/dimens_5dp"
+            android:text="@string/textview_text_cancel"
+            android:textSize="@dimen/dimens_18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

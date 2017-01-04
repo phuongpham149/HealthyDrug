@@ -14,4 +14,13 @@ public class Remind {
     private boolean isStatus;
     private String hour;
     private String mins;
+
+    @Override
+    public String toString() {
+        return "Remind{" +
+                "isStatus=" + isStatus +
+                ", hour='" + hour + '\'' +
+                ", mins='" + mins + '\'' +
+                '}';
+    }
 }

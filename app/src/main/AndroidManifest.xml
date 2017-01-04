@@ -62,6 +62,7 @@
         <activity android:name=".activities.MainActivity_"/>
         <service android:name=".services.RemindService"/>
         <receiver android:name=".receivers.RemindReceiver"/>
+        <activity android:name=".activities.RemindNotificationActivity_"/>
     </application>
 
 </manifest>

@@ -45,7 +45,6 @@ public class MainActivity extends BaseActivity implements OnClickItemMenuListene
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerAdapter mDrawerAdapter;
 
-    private SharedPreferences mSharedPreferences;
 
     @Override
     public void inits() {
@@ -76,7 +75,6 @@ public class MainActivity extends BaseActivity implements OnClickItemMenuListene
         SelectItem(0);
 
         Intent intent = new Intent(this, RemindService.class);
-        Log.d("tag", "1");
         startService(intent);
 
     }

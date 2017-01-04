@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.phuong.healthydrug.views.HeaderOptionsView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:background="@color/background"
+        app:isShowBtnLeft="false"
+        app:isShowLogoLeft="false"
+        app:isShowLogocenter="true"
+        app:title1="@string/textview_splash_HEA"
+        app:title2="@string/textview_splash_THY"></com.example.phuong.healthydrug.views.HeaderOptionsView>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_slide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_200dp"></android.support.v4.view.ViewPager>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

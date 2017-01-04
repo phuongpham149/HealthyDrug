@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderOptionsView">
+        <attr name="isShowBtnLeft" format="boolean" />
+        <attr name="isShowLogoLeft" format="boolean" />
+        <attr name="isShowLogocenter" format="boolean" />
+        <attr name="title1" format="string" localization="suggested" />
+        <attr name="title2" format="string" localization="suggested" />
+    </declare-styleable>
+</resources>

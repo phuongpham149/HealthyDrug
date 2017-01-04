@@ -24,12 +24,13 @@
         android:shadowColor="@color/colorAccent" />
 
     <RelativeLayout
+        android:id="@+id/rlSetTime"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/switchTurnAlarm"
         android:layout_marginTop="@dimen/dimens_15dp"
-        android:id="@+id/rlSetTime"
-        android:background="@drawable/border_item_recyclerview_hospital_fragment"
-        android:layout_height="wrap_content">
+        android:background="@drawable/border_item_recyclerview_hospital_fragment">
+
         <TextView
             android:id="@+id/tvSetAlarm"
             android:layout_width="match_parent"
@@ -42,12 +43,32 @@
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/tvSetTime"
-            android:layout_width="match_parent"
+            android:id="@+id/tvHour"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvSetAlarm"
-            android:padding="@dimen/dimens_10dp"
+            android:paddingLeft="@dimen/dimens_10dp"
             android:text="@string/textview_text_16_40"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_18sp" />
+
+        <TextView
+            android:id="@+id/tvBetweenHourAndMins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSetAlarm"
+            android:layout_toRightOf="@+id/tvHour"
+            android:text="@string/between_mins_and_hour"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimens_18sp" />
+
+        <TextView
+            android:id="@+id/tvMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSetAlarm"
+            android:layout_toRightOf="@+id/tvBetweenHourAndMins"
+            android:text="@string/textview_text_40"
             android:textColor="@color/black"
             android:textSize="@dimen/dimens_18sp" />
     </RelativeLayout>

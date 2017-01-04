@@ -4,16 +4,21 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="dimens_10dp">10dp</dimen>
     <dimen name="dimens_5dp">5dp</dimen>
+    <dimen name="dimens_3dp">3dp</dimen>
     <dimen name="dimens_20sp">20sp</dimen>
     <dimen name="dimens_18sp">18sp</dimen>
     <dimen name="dimens_25sp">25sp</dimen>
+    <dimen name="dimens_35sp">40sp</dimen>
     <dimen name="dimens_2dp">2dp</dimen>
     <dimen name="dimens_0dp">0dp</dimen>
     <dimen name="dimens_1dp">1dp</dimen>
     <dimen name="dimens_15dp">15dp</dimen>
+    <dimen name="dimens_16dp">16dp</dimen>
     <dimen name="dimens_25dp">25dp</dimen>
     <dimen name="dimens_200dp">200dp</dimen>
     <dimen name="dimens_50dp">50dp</dimen>
+    <dimen name="dimens_30dp">30dp</dimen>
     <dimen name="dimens_80dp">80dp</dimen>
     <dimen name="dimens_270dp">270dp</dimen>
+    <dimen name="dimens_70dp">70dp</dimen>
 </resources>

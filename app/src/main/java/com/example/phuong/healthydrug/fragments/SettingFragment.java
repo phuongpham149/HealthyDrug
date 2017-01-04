@@ -12,8 +12,6 @@ import android.widget.TimePicker;
 import com.example.phuong.healthydrug.R;
 import com.example.phuong.healthydrug.models.Remind;
 import com.example.phuong.healthydrug.receivers.bus.BusProvider;
-import com.squareup.otto.Bus;
-import com.squareup.otto.ThreadEnforcer;
 
 import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
@@ -27,22 +25,21 @@ import java.util.Calendar;
  */
 @EFragment(R.layout.setting_fragment)
 public class SettingFragment extends BaseFragment {
-    @ViewById(R.id.switchTurnAlarm)
-    Switch mBtnTurnAlarm;
-    @ViewById(R.id.rlSetTime)
-    RelativeLayout mRlSetTime;
-    @ViewById(R.id.tvSetTime)
-    TextView mTvSetTime;
-
-    private Calendar mCurrentTime;
-    private StringBuilder mTime;
-    private String mHourSelect = "";
-    private String mMinSelect = "";
-
     public static final String NAME_SHAREPREFERENCES = "remind";
     public static final String HOUR_SHAREPREFERENCES = "hour";
     public static final String MIN_SHAREPREFERENCES = "min";
     public static final String STATUS_SHAREPREFERENCES = "status";
+    @ViewById(R.id.switchTurnAlarm)
+    Switch mBtnTurnAlarm;
+    @ViewById(R.id.rlSetTime)
+    RelativeLayout mRlSetTime;
+    @ViewById(R.id.tvHour)
+    TextView mTvHour;
+    @ViewById(R.id.tvMin)
+    TextView mTvMin;
+    private Calendar mCurrentTime;
+    private String mHourSelect = "";
+    private String mMinSelect = "";
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mStatus = "";
@@ -51,31 +48,38 @@ public class SettingFragment extends BaseFragment {
     @Override
     public void inits() {
         mCurrentTime = Calendar.getInstance();
-        mTime = new StringBuilder();
-        mTime.append(String.valueOf(mCurrentTime.get(Calendar.HOUR_OF_DAY)));
-        mTime.append(getResources().getString(R.string.between_mins_and_hour));
-        mTime.append(String.valueOf(mCurrentTime.get(Calendar.MINUTE)));
-        mTvSetTime.setText(mTime);
 
         mSharedPreferences = getActivity().getSharedPreferences(NAME_SHAREPREFERENCES, 0);
         mEditor = mSharedPreferences.edit();
+        if (mSharedPreferences.getString(HOUR_SHAREPREFERENCES, "").length() > 0) {
 
+            mTvHour.setText(mSharedPreferences.getString(HOUR_SHAREPREFERENCES, ""));
+            mTvMin.setText(mSharedPreferences.getString(MIN_SHAREPREFERENCES, ""));
+        } else {
+            mTvHour.setText(String.valueOf(mCurrentTime.get(Calendar.HOUR_OF_DAY)));
+            mTvMin.setText(String.valueOf(mCurrentTime.get(Calendar.MINUTE)));
+        }
+
+        if (mSharedPreferences.getBoolean(STATUS_SHAREPREFERENCES, false)) {
+            mBtnTurnAlarm.setChecked(true);
+        }
         BusProvider.getInstance().register(this);
     }
 
     @Click(R.id.rlSetTime)
-    void setTimeAction(){
+    void setTimeAction() {
         int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mCurrentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker;
         mTimePicker = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                mTvSetTime.setText(selectedHour + ":" + selectedMinute);
                 mHourSelect = String.valueOf(selectedHour);
                 mMinSelect = String.valueOf(selectedMinute);
-                mEditor.putString(HOUR_SHAREPREFERENCES,mHourSelect);
-                mEditor.putString(MIN_SHAREPREFERENCES,mMinSelect);
+                mTvHour.setText(mHourSelect);
+                mTvMin.setText(mMinSelect);
+                mEditor.putString(HOUR_SHAREPREFERENCES, mHourSelect);
+                mEditor.putString(MIN_SHAREPREFERENCES, mMinSelect);
                 mEditor.commit();
 
                 //goi broadcast
@@ -91,17 +95,23 @@ public class SettingFragment extends BaseFragment {
     }
 
     @CheckedChange(R.id.switchTurnAlarm)
-    void changeState(CompoundButton hello, boolean turnOn){
-        if(turnOn){
-            mEditor.putBoolean(STATUS_SHAREPREFERENCES,true);
+    void changeState(CompoundButton hello, boolean turnOn) {
+        if (turnOn) {
+            Log.d("tagstart","true11111");
+            mEditor.putBoolean(STATUS_SHAREPREFERENCES, true);
+            mEditor.putString(HOUR_SHAREPREFERENCES, mTvHour.getText().toString());
+            mEditor.putString(MIN_SHAREPREFERENCES, mTvMin.getText().toString());
             mStatus = "true";
-
-        }
-        else{
-            mEditor.putBoolean(STATUS_SHAREPREFERENCES,false);
+            BusProvider.getInstance().post(mStatus);
+        } else {
+            Log.d("tagstart","true00000");
+            mEditor.putBoolean(STATUS_SHAREPREFERENCES, false);
+            mEditor.putString(HOUR_SHAREPREFERENCES, mTvHour.getText().toString());
+            mEditor.putString(MIN_SHAREPREFERENCES, mTvMin.getText().toString());
             mStatus = "false";
+            BusProvider.getInstance().post(mStatus);
         }
         mEditor.commit();
-        BusProvider.getInstance().post(mStatus);
+
     }
 }
